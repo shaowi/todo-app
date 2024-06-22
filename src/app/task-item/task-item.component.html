@@ -6,10 +6,16 @@
   />
 
   <span *ngIf="!editMode">{{ task.title }}</span>
-  <input *ngIf="editMode" [(ngModel)]="editedTitle" />
+  <input *ngIf="editMode" [(ngModel)]="editedTitle" type="text" />
 
-  <button *ngIf="!editMode" (click)="enterEditMode()">Edit</button>
-  <button *ngIf="editMode" (click)="saveEdit()">Save</button>
-  <button *ngIf="editMode" (click)="cancelEdit()">Cancel</button>
-  <button (click)="deleteTask()">Delete</button>
+  <div>
+    <button *ngIf="!editMode" (click)="enterEditMode()" class="edit">
+      Edit
+    </button>
+    <button *ngIf="editMode" (click)="saveEdit()" class="save">Save</button>
+    <button *ngIf="editMode" (click)="cancelEdit()" class="cancel">
+      Cancel
+    </button>
+    <button (click)="deleteTask()" class="delete">Delete</button>
+  </div>
 </div>
