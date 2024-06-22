@@ -1,1 +1,15 @@
-<p>task-item works!</p>
+<div class="task-item">
+  <input
+    type="checkbox"
+    [checked]="task.completed"
+    (change)="toggleCompleted()"
+  />
+
+  <span *ngIf="!editMode">{{ task.title }}</span>
+  <input *ngIf="editMode" [(ngModel)]="editedTitle" />
+
+  <button *ngIf="!editMode" (click)="enterEditMode()">Edit</button>
+  <button *ngIf="editMode" (click)="saveEdit()">Save</button>
+  <button *ngIf="editMode" (click)="cancelEdit()">Cancel</button>
+  <button (click)="deleteTask()">Delete</button>
+</div>
